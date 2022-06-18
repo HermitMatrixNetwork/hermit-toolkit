@@ -1,0 +1,31 @@
+[package]
+name = "hermit-toolkit"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package.metadata.docs.rs]
+all-features = true
+
+[features]
+default = ["serialization", "storage", "utils"]
+
+crypto = ["hermit-toolkit-crypto"] # Not in default features because this is slow to compile
+incubator = ["hermit-toolkit-incubator", "serialization"] # Should never be in default features!
+permit = ["hermit-toolkit-permit", "crypto", "utils"] # Not in default features because it requires "crypto"
+serialization = ["hermit-toolkit-serialization"]
+storage = ["hermit-toolkit-storage", "serialization"]
+utils = ["hermit-toolkit-utils"]
+viewing-key = ["hermit-toolkit-viewing-key"]
+
+[dependencies]
+hermit-toolkit-crypto = { version = "0.1.0", path = "../crypto", optional = true }
+hermit-toolkit-hmip20 = { version = "0.1.0", path = "../hmip20", optional = true}
+hermit-toolkit-hmip721 = { version = "0.1.0", path = "../hmip721", optional = true}
+hermit-toolkit-incubator = { version = "0.1.0", path = "../incubator", optional = true }
+hermit-toolkit-permit = { version = "0.1.0", path = "../permit", optional = true }
+hermit-toolkit-serialization = { version = "0.1.0", path = "../serialization", optional = true }
+hermit-toolkit-storage = { version = "0.1.0", path = "../storage", optional = true }
+hermit-toolkit-utils = { version = "0.1.0", path = "../utils", optional = true }
+hermit-toolkit-viewing-key = { version = "0.1.0", path = "../viewing_key", optional = true }

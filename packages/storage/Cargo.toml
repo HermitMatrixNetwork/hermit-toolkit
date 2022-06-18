@@ -1,0 +1,12 @@
+[package]
+name = "hermit-toolkit-storage"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1.0"
+cosmwasm-std = { package = "secret-cosmwasm-std", version = "0.10" }
+cosmwasm-storage = { package = "secret-cosmwasm-storage", version = "0.10" }
+hermit-toolkit-serialization = { version = "0.1.0", path = "../serialization" }

@@ -1,0 +1,15 @@
+[package]
+name = "hermit-toolkit-incubator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0", optional = true }
+cosmwasm-std = { package = "secret-cosmwasm-std", version = "0.10", optional = true }
+cosmwasm-storage = { package = "secret-cosmwasm-storage", version = "0.10", optional = true }
+hermit-toolkit-serialization = { version = "0.1.0", path = "../serialization", optional = true }
+
+[features]
+cashmap = ["cosmwasm-storage", "serde", "hermit-toolkit-serialization", "cosmwasm-std"]
+generational-store = ["hermit-toolkit-serialization", "serde", "cosmwasm-std"]
+maxheap = ["hermit-toolkit-serialization", "serde", "cosmwasm-std"]
